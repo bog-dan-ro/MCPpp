@@ -1,0 +1,544 @@
+[
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "server/discover",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "resultType": "complete",
+        "supportedVersions": [
+          "2026-07-28"
+        ],
+        "capabilities": {
+          "tools": {}
+        },
+        "ttlMs": 0,
+        "cacheScope": "private",
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/list",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "resultType": "complete",
+        "tools": [
+          {
+            "name": "available",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sku"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Return the available quantity for a SKU"
+          },
+          {
+            "name": "cancel",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "reservationId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reservationId"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Cancel an unshipped reservation and restore its stock"
+          },
+          {
+            "name": "confirm",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "reservationId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reservationId"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Confirm a held reservation; return false if already confirmed"
+          },
+          {
+            "name": "quote",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "discount": {
+                  "type": "number",
+                  "minimum": -1.7976931348623157e+308,
+                  "maximum": 1.7976931348623157e+308
+                }
+              },
+              "required": [
+                "sku",
+                "quantity",
+                "discount"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Quote a quantity with a discount between zero and one half"
+          },
+          {
+            "name": "reserve",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              },
+              "required": [
+                "sku",
+                "quantity"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Hold stock and return a reservation identifier"
+          },
+          {
+            "name": "serviceInfo",
+            "inputSchema": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "description": "Describe available shipping services"
+          },
+          {
+            "name": "shippingLabel",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "reservationId": {
+                  "type": "string"
+                },
+                "recipient": {
+                  "type": "string"
+                },
+                "express": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "reservationId",
+                "recipient",
+                "express"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Ship a confirmed reservation and return its label"
+          }
+        ],
+        "ttlMs": 0,
+        "cacheScope": "private",
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "available",
+        "arguments": {
+          "sku": "widget"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":10}"
+          }
+        ],
+        "structuredContent": {
+          "result": 10
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "quote",
+        "arguments": {
+          "sku": "widget",
+          "quantity": 2,
+          "discount": 0.1
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":2.25E1}"
+          }
+        ],
+        "structuredContent": {
+          "result": 22.5
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "reserve",
+        "arguments": {
+          "sku": "widget",
+          "quantity": 2
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":\"reservation-1\"}"
+          }
+        ],
+        "structuredContent": {
+          "result": "reservation-1"
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "shippingLabel",
+        "arguments": {
+          "reservationId": "reservation-1",
+          "recipient": "Ada Lovelace",
+          "express": true
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "result": {
+        "resultType": "complete",
+        "isError": true,
+        "content": [
+          {
+            "type": "text",
+            "text": "Tool execution failed"
+          }
+        ],
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "confirm",
+        "arguments": {
+          "reservationId": "reservation-1"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":true}"
+          }
+        ],
+        "structuredContent": {
+          "result": true
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "shippingLabel",
+        "arguments": {
+          "reservationId": "reservation-1",
+          "recipient": "Ada Lovelace",
+          "express": true
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":\"EXPRESS reservation-1 -> Ada Lovelace\"}"
+          }
+        ],
+        "structuredContent": {
+          "result": "EXPRESS reservation-1 -> Ada Lovelace"
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "cancel",
+        "arguments": {
+          "reservationId": "reservation-1"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "result": {
+        "resultType": "complete",
+        "isError": true,
+        "content": [
+          {
+            "type": "text",
+            "text": "Tool execution failed"
+          }
+        ],
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 10,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "claimForShipping",
+        "arguments": {
+          "reservationId": "reservation-1"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "error": {
+        "code": -32602,
+        "message": "Unknown tool"
+      },
+      "id": 10
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "available",
+        "arguments": {
+          "sku": "widget"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":8}"
+          }
+        ],
+        "structuredContent": {
+          "result": 8
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Fulfillment",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  }
+]

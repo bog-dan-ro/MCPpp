@@ -1,0 +1,5 @@
+# Copyright (c) 2026 BogDan Vatra
+# SPDX-License-Identifier: MIT
+
+# Preserve the official schema's exact bytes, including upstream EOF spacing.
+tests/protocol/mcp-2026-07-28.schema.json -text -whitespace

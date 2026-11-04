@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/conformance": "0.2.0-alpha.12",
+    "@modelcontextprotocol/inspector": "2.13.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "server-stateless:sep-2575-server-rejects-undeclared-capability": "Requires test_missing_capability and client interaction support; this server never requests client capabilities.",
+  "server-stateless:sep-2575-missing-capability-http-400": "Requires the same unsupported test_missing_capability diagnostic tool.",
+  "server-stateless:sep-2575-http-server-no-independent-requests-on-stream": "Requires test_streaming_elicitation; streaming is explicitly outside scope.",
+  "server-stateless:sep-2575-server-no-log-without-loglevel": "Requires the test_logging_tool diagnostic hook; this server emits no MCP log notifications.",
+  "caching:sep-2549-prompts-list-caching-hints": "Prompts are unsupported and not advertised.",
+  "caching:sep-2549-resources-list-caching-hints": "Resources are unsupported and not advertised.",
+  "caching:sep-2549-resources-templates-list-caching-hints": "Resource templates are unsupported and not advertised."
+}

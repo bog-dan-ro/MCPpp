@@ -1,0 +1,11 @@
+# Copyright (c) 2026 BogDan Vatra
+# SPDX-License-Identifier: MIT
+
+**
+!tools/
+!tools/ci/
+!tools/ci/Dockerfile
+!tools/verification/
+!tools/verification/package.json
+!tools/verification/package-lock.json
+!tools/verification/requirements.txt

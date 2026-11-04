@@ -1,0 +1,78 @@
+{
+  "tool": "@modelcontextprotocol/conformance@0.2.0-alpha.12",
+  "protocol": "2026-07-28",
+  "scenarios": [
+    {
+      "scenario": "server-stateless",
+      "officialExitCode": 1,
+      "passed": 21,
+      "unsupported": [
+        {
+          "id": "sep-2575-server-rejects-undeclared-capability",
+          "message": "Not testable: server does not list the diagnostic tool 'test_missing_capability' in tools/list and the probe call did not exercise it (required for the undeclared-capability rejection)",
+          "reason": "Requires test_missing_capability and client interaction support; this server never requests client capabilities."
+        },
+        {
+          "id": "sep-2575-missing-capability-http-400",
+          "message": "Not testable: server does not list the diagnostic tool 'test_missing_capability' in tools/list, so the -32021 HTTP status could not be validated",
+          "reason": "Requires the same unsupported test_missing_capability diagnostic tool."
+        },
+        {
+          "id": "sep-2575-http-server-no-independent-requests-on-stream",
+          "message": "Not testable: server does not list the diagnostic tool 'test_streaming_elicitation' in tools/list, so the response stream could not be exercised",
+          "reason": "Requires test_streaming_elicitation; streaming is explicitly outside scope."
+        },
+        {
+          "id": "sep-2575-server-no-log-without-loglevel",
+          "message": "Not testable: server does not list the diagnostic tool 'test_logging_tool' in tools/list, so the no-log-without-logLevel requirement could not be exercised",
+          "reason": "Requires the test_logging_tool diagnostic hook; this server emits no MCP log notifications."
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "scenario": "tools-list",
+      "officialExitCode": 0,
+      "passed": 4,
+      "unsupported": [],
+      "unexpected": []
+    },
+    {
+      "scenario": "dns-rebinding-protection",
+      "officialExitCode": 0,
+      "passed": 2,
+      "unsupported": [],
+      "unexpected": []
+    },
+    {
+      "scenario": "caching",
+      "officialExitCode": 1,
+      "passed": 4,
+      "unsupported": [
+        {
+          "id": "sep-2549-prompts-list-caching-hints",
+          "message": "prompts/list returned JSON-RPC error -32601: Method not found",
+          "reason": "Prompts are unsupported and not advertised."
+        },
+        {
+          "id": "sep-2549-resources-list-caching-hints",
+          "message": "resources/list returned JSON-RPC error -32601: Method not found",
+          "reason": "Resources are unsupported and not advertised."
+        },
+        {
+          "id": "sep-2549-resources-templates-list-caching-hints",
+          "message": "resources/templates/list returned JSON-RPC error -32601: Method not found",
+          "reason": "Resource templates are unsupported and not advertised."
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "scenario": "http-header-validation",
+      "officialExitCode": 0,
+      "passed": 14,
+      "unsupported": [],
+      "unexpected": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+# Copyright (c) 2026 BogDan Vatra
+# SPDX-License-Identifier: MIT
+
+name: C++26 verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Build the pinned verification environment
+        run: docker build -t mcpp-ci -f tools/ci/Dockerfile .
+      - name: Native tests, official clients, sanitizers, installed and FetchContent consumers
+        run: >-
+          docker run --rm --init --user "$(id -u):$(id -g)"
+          -v "$PWD:/workspace" mcpp-ci
+      - name: Preserve test and conformance reports
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: verification-reports
+          if-no-files-found: ignore
+          path: |
+            build-ci-*/Testing/Temporary/
+            build-ci-*/conformance-results/
+            build-ci-*/inspector-http/
+            build-ci-*/inspector-https/

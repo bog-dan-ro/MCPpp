@@ -1,0 +1,159 @@
+[
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": "discover-1",
+      "method": "server/discover",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {},
+          "io.modelcontextprotocol/clientInfo": {
+            "name": "mcpp-test",
+            "version": "0.1.0"
+          }
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": "discover-1",
+      "result": {
+        "resultType": "complete",
+        "supportedVersions": [
+          "2026-07-28"
+        ],
+        "capabilities": {
+          "tools": {}
+        },
+        "ttlMs": 0,
+        "cacheScope": "private",
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Calculator",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": "list-1",
+      "method": "tools/list",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {},
+          "io.modelcontextprotocol/clientInfo": {
+            "name": "mcpp-test",
+            "version": "0.1.0"
+          }
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": "list-1",
+      "result": {
+        "resultType": "complete",
+        "tools": [
+          {
+            "name": "add",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "b": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Add two integers with overflow checking"
+          },
+          {
+            "name": "printMessage",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "message"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Write a message to the server diagnostic stream"
+          }
+        ],
+        "ttlMs": 0,
+        "cacheScope": "private",
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Calculator",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {},
+          "io.modelcontextprotocol/clientInfo": {
+            "name": "mcpp-test",
+            "version": "0.1.0"
+          }
+        },
+        "name": "add",
+        "arguments": {
+          "a": 2,
+          "b": 3
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "resultType": "complete",
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"result\":5}"
+          }
+        ],
+        "structuredContent": {
+          "result": 5
+        },
+        "_meta": {
+          "io.modelcontextprotocol/serverInfo": {
+            "name": "MCP++ Calculator",
+            "version": "0.1.0"
+          }
+        }
+      }
+    }
+  }
+]

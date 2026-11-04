@@ -1,0 +1,292 @@
+[
+  {
+    "version": "2.13.0",
+    "exchanges": [
+      {
+        "transport": "stdio",
+        "method": "tools/list",
+        "result": {
+          "tools": [
+            {
+              "name": "add",
+              "description": "Add two integers with overflow checking",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "printMessage",
+              "description": "Write a message to the server diagnostic stream",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      {
+        "transport": "stdio",
+        "method": "tools/call",
+        "result": {
+          "_meta": {
+            "io.modelcontextprotocol/serverInfo": {
+              "name": "MCP++ Calculator",
+              "version": "0.1.0"
+            }
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":5}"
+            }
+          ],
+          "structuredContent": {
+            "result": 5
+          },
+          "isError": false
+        }
+      },
+      {
+        "transport": "http",
+        "method": "tools/list",
+        "result": {
+          "tools": [
+            {
+              "name": "add",
+              "description": "Add two integers with overflow checking",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "printMessage",
+              "description": "Write a message to the server diagnostic stream",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      {
+        "transport": "http",
+        "method": "tools/call",
+        "result": {
+          "_meta": {
+            "io.modelcontextprotocol/serverInfo": {
+              "name": "MCP++ Calculator",
+              "version": "0.1.0"
+            }
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":5}"
+            }
+          ],
+          "structuredContent": {
+            "result": 5
+          },
+          "isError": false
+        }
+      }
+    ]
+  },
+  {
+    "version": "2.13.0",
+    "exchanges": [
+      {
+        "transport": "stdio",
+        "method": "tools/list",
+        "result": {
+          "tools": [
+            {
+              "name": "add",
+              "description": "Add two integers with overflow checking",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "printMessage",
+              "description": "Write a message to the server diagnostic stream",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      {
+        "transport": "stdio",
+        "method": "tools/call",
+        "result": {
+          "_meta": {
+            "io.modelcontextprotocol/serverInfo": {
+              "name": "MCP++ Calculator",
+              "version": "0.1.0"
+            }
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":5}"
+            }
+          ],
+          "structuredContent": {
+            "result": 5
+          },
+          "isError": false
+        }
+      },
+      {
+        "transport": "https",
+        "method": "tools/list",
+        "result": {
+          "tools": [
+            {
+              "name": "add",
+              "description": "Add two integers with overflow checking",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "printMessage",
+              "description": "Write a message to the server diagnostic stream",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      {
+        "transport": "https",
+        "method": "tools/call",
+        "result": {
+          "_meta": {
+            "io.modelcontextprotocol/serverInfo": {
+              "name": "MCP++ Calculator",
+              "version": "0.1.0"
+            }
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":5}"
+            }
+          ],
+          "structuredContent": {
+            "result": 5
+          },
+          "isError": false
+        }
+      }
+    ]
+  }
+]
